@@ -1,0 +1,22 @@
+[
+  {
+    "servicio": "GASTROENTEROLOGÍA",
+    "fecha": "2024-07-31",
+    "medico": {
+      "dni": "21519901",
+      "nombres": "DENNIS",
+      "apellidoPaterno": "HINOSTROZA",
+      "apellidoMaterno": "MORALES"
+    },
+    "paciente": {
+      "dni": "28271324",
+      "nombres": "GUDELIA",
+      "apellidoPaterno": "HUAMAN",
+      "apellidoMaterno": "ENRIQUEZ"
+    }
+  },
+  {
+    "servicio": "CIRUGIA GENERAL",
+    "fecha": "2024-07-29"
+  }
+]
