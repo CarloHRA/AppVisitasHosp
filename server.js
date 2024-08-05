@@ -17,26 +17,48 @@ app.use('/media', express.static(path.join(__dirname, 'media')));
 
 // Ruta para obtener servicios desde el archivo CSV
 app.get('/api/servicios', (req, res) => {
-    const filePath = path.join(__dirname, 'catalogo', 'Servicios.csv');
-    const servicios = [];
+    const servicios = [
+        { Nro: '1', Nombre: 'ATENCION INMEDIATA' },
+        { Nro: '2', Nombre: 'CARDIOLOGIA' },
+        { Nro: '3', Nombre: 'CENTRO OBSTETRICO' },
+        { Nro: '4', Nombre: 'CIRUGIA AMBULATORIA' },
+        { Nro: '5', Nombre: 'CIRUGIA ESPECIALIDADES' },
+        { Nro: '6', Nombre: 'CIRUGIA GENERAL' },
+        { Nro: '7', Nombre: 'CIRUGIA PEDIATRICA' },
+        { Nro: '8', Nombre: 'ENDOCRINOLOGIA' },
+        { Nro: '9', Nombre: 'GASTROENTEROLOGIA' },
+        { Nro: '10', Nombre: 'GINECO - OBSTETRICIA' },
+        { Nro: '11', Nombre: 'GINECOLOGIA - PAB I' },
+        { Nro: '12', Nombre: 'HOSPITALIZACION EN SALUD MENTAL Y ADICCIONES' },
+        { Nro: '13', Nombre: 'INTERMEDIOS' },
+        { Nro: '14', Nombre: 'MAT I - PAB I' },
+        { Nro: '15', Nombre: 'MAT II - PAB II' },
+        { Nro: '16', Nombre: 'MEDICINA ESPECIALIDADES' },
+        { Nro: '17', Nombre: 'MEDICINA GENERAL' },
+        { Nro: '18', Nombre: 'MEDICINA INTERNA' },
+        { Nro: '19', Nombre: 'NEFROLOGIA' },
+        { Nro: '20', Nombre: 'NEONATOLOGIA' },
+        { Nro: '21', Nombre: 'NEUMOLOGIA' },
+        { Nro: '22', Nombre: 'NEUROCIRUGIA HOSP' },
+        { Nro: '23', Nombre: 'NEUROLOGIA' },
+        { Nro: '24', Nombre: 'OBSERVACION CESAREA' },
+        { Nro: '25', Nombre: 'OBSTETRICIA' },
+        { Nro: '26', Nombre: 'PEDIATRIA ESCOLAR' },
+        { Nro: '27', Nombre: 'PEDIATRIA LACTANTE' },
+        { Nro: '28', Nombre: 'PEDIATRIA PRE ESCOLAR' },
+        { Nro: '29', Nombre: 'REUMATOLOGIA' },
+        { Nro: '30', Nombre: 'TRAUMATOLOGIA ADULTOS' },
+        { Nro: '31', Nombre: 'TRAUMATOLOGIA NINOS' },
+        { Nro: '32', Nombre: 'UCEO' },
+        { Nro: '33', Nombre: 'UCI' },
+        { Nro: '34', Nombre: 'UCIN I' },
+        { Nro: '35', Nombre: 'UCIN II' },
+        { Nro: '36', Nombre: 'UCIP' }
+    ];
 
-    const readInterface = readline.createInterface({
-        input: fs.createReadStream(filePath),
-        output: process.stdout,
-        console: false
-    });
-
-    readInterface.on('line', (line) => {
-        const [nro, nombre] = line.split(';');
-        if (nro && nombre) {
-            servicios.push({ Nro: nro.trim(), Nombre: nombre.trim() });
-        }
-    });
-
-    readInterface.on('close', () => {
-        res.json(servicios);
-    });
+    res.json(servicios);
 });
+
 
 // Ruta para registrar visitas
 app.post('/api/visitas', (req, res) => {
